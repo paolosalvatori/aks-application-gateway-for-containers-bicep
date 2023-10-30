@@ -160,7 +160,11 @@ The Bicep modules provide the flexibility to selectively deploy the following Az
 
 ## What is Gateway API?
 
-[Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) and [Gateway API](https://gateway-api.sigs.k8s.io/) are both Kubernetes objects used for managing traffic routing and load balancing. However, the Gateway API provides the following advantages over Ingress Controllers:
+[Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) and [Gateway API](https://gateway-api.sigs.k8s.io/) are both Kubernetes objects used for managing traffic routing and load balancing. The Designed to be generic, expressive, extensible, and role-oriented, the Gateway API is a modern set of APIs for defining L4 and L7 routing rules in Kubernetes. 
+
+![Gateway API](./images/gateway-api.png)
+
+Gateway API provides the following advantages over Ingress Controllers:
 
 1. **Flexibility**: The Gateway API provides more flexible deployment strategies, allowing for near real-time updates to add or move pods, routes, and probes. This flexibility allows for more agile and efficient management of traffic.
 2. **Performance**: The Gateway API offers increased performance compared to an Ingress Controller. It allows for near real-time updates, ensuring that changes to pods, routes, and probes are reflected quickly. This can result in improved responsiveness and reduced latency for applications.
