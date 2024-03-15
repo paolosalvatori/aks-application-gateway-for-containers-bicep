@@ -37,7 +37,7 @@ if [[ $private == 'true' ]]; then
   echo "$clusterName AKS cluster is private"
 
   # Install Prometheus
-  command="helm upgrade prometheus prometheus-community/kube-prometheus-stack \ù
+  command="helm upgrade prometheus prometheus-community/kube-prometheus-stack \
   --install \
   --create-namespace \
   --namespace prometheus \
@@ -55,7 +55,7 @@ if [[ $private == 'true' ]]; then
     --install \
     --create-namespace \
     --namespace cert-manager \
-    --version v1.8.0 \
+    --version v1.14.0 \
     --set installCRDs=true \
     --set nodeSelector.\"kubernetes\.io/os\"=linux \
     --set \"extraArgs={--feature-gates=ExperimentalGatewayAPISupport=true}\""
@@ -233,7 +233,7 @@ else
     --install \
     --create-namespace \
     --namespace cert-manager \
-    --version v1.8.0 \
+    --version v1.14.0 \
     --set installCRDs=true \
     --set nodeSelector."kubernetes\.io/os"=linux \
     --set "extraArgs={--feature-gates=ExperimentalGatewayAPISupport=true}"
@@ -392,4 +392,5 @@ echo '{}' |
   jq --arg x $namespace '.namespace=$x' |
   jq --arg x $serviceAccountName '.serviceAccountName=$x' |
   jq --arg x 'prometheus' '.prometheus=$x' |
-  jq --arg x 'cert-manager' '.certManager=$x' >$AZ_SCRIPTS_OUTPUT_PATH
+  jq --arg x 'cert-manager' '.certManager=$x' |
+  jq --arg x 'ingress-basic' '.nginxIngressController=$x' >$AZ_SCRIPTS_OUTPUT_PATH
